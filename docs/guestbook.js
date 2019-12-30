@@ -1,7 +1,7 @@
 /**
  * Web application
  */
-const apiUrl = 'https://6f374697.eu-gb.apigw.appdomain.cloud/guestbook';
+const apiUrl = 'https://6f374697.eu-gb.apigw.appdomain.cloud/features';
 const guestbook = {
   // retrieve the existing guestbook entries
   get() {
@@ -12,16 +12,16 @@ const guestbook = {
     });
   },
   // add a single guestbood entry
-  add(name, email, comment) {
-    console.log('Sending', name, email, comment)
+  add(csId, featureId, featureEnabled) {
+    console.log('Sending', csId, featureId, featureEnabled)
     return $.ajax({
       type: 'PUT',
       url: `${apiUrl}/entries`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
-        name,
-        email,
-        comment,
+        csId,
+        featureId,
+        featureEnabled,
       }),
       dataType: 'json',
     });
@@ -40,7 +40,7 @@ const guestbook = {
   function loadEntries() {
     console.log('Loading entries...');
     $('#entries').html('Loading entries...');
-    guestbook.get().done(function(result) {
+    features.get().done(function(result) {
       if (!result.entries) {
         return;
       }
@@ -61,9 +61,9 @@ const guestbook = {
     e.preventDefault();
 
     guestbook.add(
-      $('#name').val().trim(),
-      $('#email').val().trim(),
-      $('#comment').val().trim()
+      $('#csId').val().trim(),
+      $('#featureId').val().trim(),
+      $('#featureEnabled').val().trim()
     ).done(function(result) {
       // reload entries
       loadEntries();
