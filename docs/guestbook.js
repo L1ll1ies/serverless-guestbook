@@ -4,12 +4,12 @@
 const apiUrl = 'https://6f374697.eu-gb.apigw.appdomain.cloud/features';
 const guestbook = {
   // retrieve the existing guestbook entries
-  get() {
+  get(csIdSearched) {
     return $.ajax({
       type: 'GET',
       url: `${apiUrl}/features`,
       data: { 
-        csId: 123456789
+        csId: csIdSearched
       },
       dataType: 'json'
     });
@@ -40,10 +40,10 @@ const guestbook = {
   }
 
   // retrieve entries and update the UI
-  function loadEntries() {
+  function loadEntries(csIdSearched) {
     console.log('Loading entries...');
     $('#entries').html('Loading entries...');
-    guestbook.get().done(function(result) {
+    guestbook.get(csIdSearched).done(function(result) {
       if (!result.entries) {
         return;
       }
@@ -69,7 +69,7 @@ const guestbook = {
       $('#featureEnabled').val().trim()
     ).done(function(result) {
       // reload entries
-      loadEntries();
+      loadEntries($('#csId').val().trim());
     }).error(function(error) {
       console.log(error);
     });
@@ -77,6 +77,10 @@ const guestbook = {
 
   $(document).ready(function() {
     prepareTemplates();
-    loadEntries();
+    //loadEntries();
+    $('#searchButton').click(function() {
+      var csIdSearched = $('#csIdSearch').val().trim();
+      loadEntries(csIdSearched);
+    });
   });
 })();
