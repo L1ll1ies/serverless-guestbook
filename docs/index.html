@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guestbook - a serverless web application</title>
+  <title>Feature Viewer - a serverless web application</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
 </head>
@@ -13,7 +13,7 @@
   <section class="section">
     <div class="container">
       <h1 class="title is-1">
-        Guestbook
+        Features
       </h1>
       <p class="subtitle">
         A serverless web application
@@ -22,35 +22,35 @@
       <div class="columns">
         <div class="column">
           <h3 class="title is-3">
-            Messages from past visitors
+            Features for this user
           </h3>
           <div id="entries"></div>
         </div>
         <div class="column">
           <h3 class="title is-3">
-            Add your message
+            Lookup a customer number
           </h3>
           <form id="addEntry">
             <div class="field">
-              <label class="label">Name</label>
+              <label class="label">csId</label>
               <div class="control">
-                <input class="input" type="text" placeholder="your name" id="name">
+                <input class="input" type="text" placeholder="csId" id="name">
               </div>
             </div>
             <div class="field">
-              <label class="label">Email</label>
+              <label class="label">featureId</label>
               <div class="control">
-                <input class="input" type="text" placeholder="your email" id="email">
+                <input class="input" type="text" placeholder="featureId" id="email">
               </div>
             </div>
             <div class="field">
-              <label class="label">Comment</label>
+              <label class="label">featureEnabled</label>
               <div class="control">
-                <textarea class="textarea" placeholder="your comment" id="comment"></textarea>
+                <textarea class="textarea" placeholder="Should the feature be enabled? TRUE/FALSE" id="comment"></textarea>
               </div>
             </div>
             <div class="control">
-              <button class="button is-primary">Send your message</button>
+              <button class="button is-primary">Submit Feature</button>
             </div>
           </form>
         </div>
