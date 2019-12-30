@@ -62,11 +62,16 @@ const guestbook = {
   // reload entries on success
   $(document).on('submit', '#addEntry', function(e) {
     e.preventDefault();
-
+    
+    var featureEnabledCheckbox = false;
+    if ($('#featureEnabled').is(":checked")) {
+      // it is checked
+      featureEnabledCheckbox = true;
+    }
     guestbook.add(
       $('#csId').val().trim(),
       $('#featureId').val().trim(),
-      $('#featureEnabled').val().trim()
+      featureEnabledCheckbox
     ).done(function(result) {
       // reload entries
       loadEntries($('#csId').val().trim());
