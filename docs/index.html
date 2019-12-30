@@ -32,25 +32,25 @@
           </h3>
           <form id="addEntry">
             <div class="field">
-              <label class="label">Name</label>
+              <label class="label">Customer ID</label>
               <div class="control">
-                <input class="input" type="text" placeholder="your name" id="name">
+                <input class="input" type="text" placeholder="Customer ID" id="csId">
               </div>
             </div>
             <div class="field">
-              <label class="label">Email</label>
+              <label class="label">Feature ID</label>
               <div class="control">
-                <input class="input" type="text" placeholder="your email" id="email">
+                <input class="input" type="text" placeholder="Feature ID" id="featureId">
               </div>
             </div>
             <div class="field">
-              <label class="label">Comment</label>
+              <label class="label">Feature Enabled?</label>
               <div class="control">
-                <textarea class="textarea" placeholder="your comment" id="comment"></textarea>
+                <input class="input" placeholder="TRUE/FALSE" id="featureEnabled">
               </div>
             </div>
             <div class="control">
-              <button class="button is-primary">Send your message</button>
+              <button class="button is-primary">Save</button>
             </div>
           </form>
         </div>
@@ -62,11 +62,6 @@
     {{#each entries}}
     <div class="box">
       <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-            <img src="{{icon}}" alt="No Image">
-          </figure>
-        </div>
         <div class="media-content">
           <div class="content">
             <p>
