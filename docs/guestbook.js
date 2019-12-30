@@ -63,10 +63,10 @@ const guestbook = {
   $(document).on('submit', '#addEntry', function(e) {
     e.preventDefault();
     
-    var featureEnabledCheckbox = false;
+    var featureEnabledCheckbox = "false";
     if ($('#featureEnabled').is(":checked")) {
       // it is checked
-      featureEnabledCheckbox = true;
+      featureEnabledCheckbox = "true";
     }
     guestbook.add(
       $('#csId').val().trim(),
