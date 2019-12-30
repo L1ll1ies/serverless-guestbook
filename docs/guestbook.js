@@ -15,16 +15,16 @@ const guestbook = {
     });
   },
   // add a single guestbood entry
-  add(name, email, comment) {
-    console.log('Sending', name, email, comment)
+  add(csId, featureId, featureEnabled) {
+    console.log('Sending', csId, featureId, featureEnabled)
     return $.ajax({
       type: 'PUT',
-      url: `${apiUrl}/entries`,
+      url: `${apiUrl}/features`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
-        name,
-        email,
-        comment,
+        csId,
+        featureId,
+        featureEnabled,
       }),
       dataType: 'json',
     });
@@ -64,9 +64,9 @@ const guestbook = {
     e.preventDefault();
 
     guestbook.add(
-      $('#name').val().trim(),
-      $('#email').val().trim(),
-      $('#comment').val().trim()
+      $('#csId').val().trim(),
+      $('#featureId').val().trim(),
+      $('#featureEnabled').val().trim()
     ).done(function(result) {
       // reload entries
       loadEntries();
